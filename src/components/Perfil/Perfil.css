@@ -1,0 +1,179 @@
+/* =========================================
+   CONTENEDOR PRINCIPAL
+   ========================================= */
+.sobre-mi-section {
+  padding: 5rem 5%;
+  background-color: var(--bg-primary); /* Continuidad del fondo oscuro */
+  color: var(--text-main);
+  display: flex;
+  justify-content: center;
+}
+
+.sobre-mi-container {
+  max-width: 1050px;
+  width: 100%;
+}
+
+/* =========================================
+   GRID (Grilla para las 2 tarjetas)
+   ========================================= */
+.sobre-mi-grid {
+  display: grid;
+  /* La primera columna será ligeramente más ancha que la segunda (1.3fr vs 1fr) */
+  grid-template-columns: 1.3fr 1fr;
+  gap: 2rem;
+}
+
+/* =========================================
+   TARJETAS (Cards)
+   ========================================= */
+.card {
+  background-color: var(--bg-secondary); /* Un tono ligeramente más claro que el fondo */
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-normal);
+}
+
+.card:hover {
+  border-color: var(--card-hover-border);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.icon-box {
+  background-color: var(--color-mint-subtle);
+  color: var(--color-mint); /* Color menta/cian */
+  padding: 0.8rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.card:hover .icon-box {
+  transform: scale(1.05);
+}
+
+.card-header h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.card-text {
+  color: var(--text-muted);
+  line-height: 1.8;
+  font-size: 0.98rem;
+  text-align: justify;
+}
+
+.card-text strong {
+  color: var(--text-main);
+}
+
+/* =========================================
+   LÍNEA DE TIEMPO (Educación)
+   ========================================= */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--border-medium);
+  transition: var(--transition-fast);
+}
+
+.timeline-item:hover {
+  border-left-color: var(--color-mint);
+}
+
+/* El punto en la línea de tiempo */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -5px; /* Centra el punto sobre el borde izquierdo */
+  top: 5px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--color-mint);
+  border-radius: var(--radius-full);
+  transition: var(--transition-fast);
+}
+
+.timeline-item:hover::before {
+  background-color: var(--color-mint);
+  transform: scale(1.3);
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.4rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.timeline-header h4 {
+  font-size: 1.05rem;
+  color: var(--color-mint);
+  font-weight: 600;
+}
+
+.timeline-date {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* =========================================
+   ETIQUETAS (Badges)
+   ========================================= */
+.badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.badge-outline {
+  border: 1px solid var(--color-mint);
+  color: var(--color-mint);
+  background-color: transparent;
+}
+
+.badge-solid {
+  background-color: var(--color-mint);
+  color: var(--bg-primary);
+}
+
+/* =========================================
+   RESPONSIVIDAD (Celulares y Tablets)
+   ========================================= */
+@media (max-width: 900px) {
+  .sobre-mi-grid {
+    /* En pantallas pequeñas, colapsa a 1 sola columna */
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .card {
+    padding: 1.8rem; /* Reduce el padding interno en móviles */
+  }
+}
