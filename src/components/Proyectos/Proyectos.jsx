@@ -1,43 +1,27 @@
 import './Proyectos.css';
 
 const Proyectos = () => {
-  // Arreglo de proyectos destacados de Jeremy Ylasaca con tecnologías actualizadas
+  // Arreglo de proyectos destacados de Jeremy Ylasaca con aplicaciones reales en producción
   const proyectosData = [
     {
       id: 1,
-      imagen: "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=800&q=80",
-      titulo: "Plataforma E-Commerce & Carrito Fullstack",
-      descripcion: "Aplicación web integral de comercio electrónico con catálogo dinámico, tipado estático seguro, carrito reactivo, persistencia de sesión y pasarela de pago simulada.",
-      tecnologias: ["React", "TypeScript", "Node.js", "Express", "Tailwind CSS", "PostgreSQL"],
-      linkDemo: "https://github.com/jeremyylasaca40-a11y/MiPortafolio",
-      linkCodigo: "https://github.com/jeremyylasaca40-a11y/MiPortafolio"
+      imagen: "/proyectos/web_cantabra.png",
+      titulo: "WEB-Cántabra | Plataforma de Pedidos & Comida Rápida",
+      descripcion: "Aplicación web completa de pedidos para restaurante con catálogo interactivo de platos típicos y bebidas peruanas, carrito de compras dinámico, módulo 'Mis pedidos' y autenticación de usuarios. Desplegada en servidor de producción con dominio web activo.",
+      tecnologias: ["PHP", "MySQL", "JavaScript", "HTML5", "CSS3 / Responsive", "Apache / InfinityFree"],
+      linkDemo: "http://comidarapida.infinityfree.me",
+      linkCodigo: "https://github.com/jeremyylasaca40-a11y/MiPortafolio",
+      enProduccion: true
     },
     {
       id: 2,
-      imagen: "https://images.unsplash.com/photo-1618401471353-b98aedd04e11?auto=format&fit=crop&w=800&q=80",
+      imagen: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
       titulo: "App Web en Tiempo Real con Socket.io & Chat",
       descripcion: "Sistema de comunicación bidireccional instantáneo con salas virtuales privadas, notificaciones en tiempo real, eventos en vivo y sincronización de datos con WebSockets.",
       tecnologias: ["React", "TypeScript", "Socket.io", "Node.js", "Express", "Tailwind CSS"],
       linkDemo: "https://github.com/jeremyylasaca40-a11y/MiPortafolio",
-      linkCodigo: "https://github.com/jeremyylasaca40-a11y/MiPortafolio"
-    },
-    {
-      id: 3,
-      imagen: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-      titulo: "Sistema de Gestión y Registro Académico SENATI",
-      descripcion: "Plataforma web para administración de notas, asistencias y seguimiento de estudiantes del ciclo formativo con autenticación segura basada en roles y reportería.",
-      tecnologias: ["PHP", "Laravel", "MySQL", "JavaScript", "Bootstrap 5", "MVC"],
-      linkDemo: "https://github.com/jeremyylasaca40-a11y/MiPortafolio",
-      linkCodigo: "https://github.com/jeremyylasaca40-a11y/MiPortafolio"
-    },
-    {
-      id: 4,
-      imagen: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80",
-      titulo: "Portafolio Web Profesional React 19 & CSS Modular",
-      descripcion: "Sitio web de portafolio personal moderno y responsivo estructurado por componentes modulares, variables de color CSS, animaciones fluidas y soporte multiplataforma.",
-      tecnologias: ["React 19", "Vite", "TypeScript", "Vanilla CSS", "Responsive Design", "Git"],
-      linkDemo: "#inicio",
-      linkCodigo: "https://github.com/jeremyylasaca40-a11y/MiPortafolio"
+      linkCodigo: "https://github.com/jeremyylasaca40-a11y/MiPortafolio",
+      enProduccion: false
     }
   ];
 
@@ -49,12 +33,18 @@ const Proyectos = () => {
         <div className="proyectos-grid">
           {proyectosData.map((proyecto) => (
             <article key={proyecto.id} className="proyecto-card">
-              {/* 1. Imagen del Proyecto */}
+              {/* 1. Imagen del Proyecto con Badge de Estado */}
               <div className="proyecto-imagen">
+                {proyecto.enProduccion && (
+                  <div className="proyecto-live-badge">
+                    <span className="live-dot"></span>
+                    Online en Producción
+                  </div>
+                )}
                 <img 
                   src={proyecto.imagen} 
                   alt={`Captura de ${proyecto.titulo}`} 
-                  loading="lazy"
+                  loading="eager"
                 />
               </div>
 
@@ -86,7 +76,7 @@ const Proyectos = () => {
                       <polyline points="15 3 21 3 21 9"></polyline>
                       <line x1="10" y1="14" x2="21" y2="3"></line>
                     </svg>
-                    Demo en Vivo
+                    Demo en Vivo ↗
                   </a>
                   
                   <a 

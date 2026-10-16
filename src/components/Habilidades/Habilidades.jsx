@@ -1,14 +1,14 @@
 import './Habilidades.css';
 
 const Habilidades = () => {
-  // Arreglo de datos: Stack tecnológico moderno y fullstack para Jeremy Ylasaca
+  // Arreglo de datos: Stack tecnológico para Jeremy Ylasaca con nivel Intermedio
   const skillsData = [
     {
       id: 1,
       titulo: "React.js",
       descripcion: "Construcción de Single Page Applications, componentización modular, Custom Hooks, gestión de estado y consumo de APIs asíncronas.",
-      nivel: "Avanzado",
-      botonTexto: "DOMINADO",
+      nivel: "Intermedio",
+      botonTexto: "INTERMEDIO",
       estado: "completado",
       icono: (
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-cyan">
@@ -23,8 +23,8 @@ const Habilidades = () => {
       id: 2,
       titulo: "TypeScript (Fullstack)",
       descripcion: "Tipado estático seguro tanto en Frontend (React) como Backend (Node.js/Express), interfaces, tipos genéricos, DTOs y prevención de errores.",
-      nivel: "Avanzado",
-      botonTexto: "DOMINADO",
+      nivel: "Intermedio",
+      botonTexto: "INTERMEDIO",
       estado: "completado",
       icono: (
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-cyan">
@@ -38,8 +38,8 @@ const Habilidades = () => {
       id: 3,
       titulo: "Node.js & Express",
       descripcion: "Arquitectura backend orientada a servicios, desarrollo de APIs RESTful, middlewares de autenticación (JWT), CORS y hashing con bcrypt.",
-      nivel: "Avanzado",
-      botonTexto: "DOMINADO",
+      nivel: "Intermedio",
+      botonTexto: "INTERMEDIO",
       estado: "completado",
       icono: (
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-cyan">
@@ -55,7 +55,7 @@ const Habilidades = () => {
       titulo: "Socket.io & WebSockets",
       descripcion: "Comunicación bidireccional en tiempo real, salas (rooms), eventos distribuidos, notificaciones push instantáneas y aplicaciones de chat.",
       nivel: "Intermedio",
-      botonTexto: "DOMINADO",
+      botonTexto: "INTERMEDIO",
       estado: "completado",
       icono: (
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-cyan">
@@ -67,8 +67,8 @@ const Habilidades = () => {
       id: 5,
       titulo: "Tailwind CSS & CSS3 Moderno",
       descripcion: "Maquetación ultra rápida con clases de utilidad, diseño responsive móvil-first, personalización de temas oscuros, Flexbox y Grid.",
-      nivel: "Avanzado",
-      botonTexto: "DOMINADO",
+      nivel: "Intermedio",
+      botonTexto: "INTERMEDIO",
       estado: "completado",
       icono: (
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-cyan">
@@ -81,8 +81,8 @@ const Habilidades = () => {
       id: 6,
       titulo: "SQL Server / MySQL / PostgreSQL",
       descripcion: "Diseño relacional entidad-relación, normalización, transacciones ACID, optimización de índices, vistas y procedimientos almacenados.",
-      nivel: "Avanzado",
-      botonTexto: "DOMINADO",
+      nivel: "Intermedio",
+      botonTexto: "INTERMEDIO",
       estado: "completado",
       icono: (
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-cyan">
@@ -97,7 +97,7 @@ const Habilidades = () => {
       titulo: "PHP & Laravel",
       descripcion: "Desarrollo backend estructurado, ORM Eloquent, autenticación, migraciones, controladores, validaciones y arquitectura MVC sólida.",
       nivel: "Intermedio",
-      botonTexto: "DOMINADO",
+      botonTexto: "INTERMEDIO",
       estado: "completado",
       icono: (
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-cyan">
@@ -109,8 +109,8 @@ const Habilidades = () => {
       id: 8,
       titulo: "Git & GitHub",
       descripcion: "Flujo GitFlow, ramas, merge, resolución de conflictos, pull requests, integración continua y repositorios en la nube.",
-      nivel: "Avanzado",
-      botonTexto: "DOMINADO",
+      nivel: "Intermedio",
+      botonTexto: "INTERMEDIO",
       estado: "completado",
       icono: (
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-cyan">
@@ -125,9 +125,9 @@ const Habilidades = () => {
       id: 9,
       titulo: "Python & Inteligencia Artificial",
       descripcion: "Procesamiento de datos con Pandas/NumPy, conexión con APIs de LLMs, automatización de tareas y desarrollo de soluciones con IA.",
-      nivel: "En Progreso",
-      botonTexto: "EN PROCESO",
-      estado: "proceso",
+      nivel: "Intermedio",
+      botonTexto: "INTERMEDIO",
+      estado: "completado",
       icono: (
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-cyan">
           <path d="M12 2c5 0 5 3 5 3v3H9V7c0-2 2-5 3-5z"></path>
@@ -148,13 +148,12 @@ const Habilidades = () => {
         <div className="habilidades-grid">
           {skillsData.map((skill) => (
             <div key={skill.id} className="skill-card">
-              {/* Cabecera de la tarjeta: Ícono y Botón */}
+              {/* Cabecera de la tarjeta: Ícono y Badge */}
               <div className="skill-header">
                 <div className="skill-icon">
                   {skill.icono}
                 </div>
                 
-                {/* Clases dinámicas: Si el estado es proceso, aplicamos badge-yellow */}
                 <span className={`skill-badge ${skill.estado === 'proceso' ? 'badge-yellow' : 'badge-green'}`}>
                   {skill.botonTexto}
                 </span>

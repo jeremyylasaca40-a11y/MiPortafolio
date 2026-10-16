@@ -9,7 +9,9 @@ const Contacto = () => {
     mensaje: ''
   });
 
+  const [cargando, setCargando] = useState(false);
   const [enviado, setEnviado] = useState(false);
+  const [error, setError] = useState(null);
 
   // Función para manejar los cambios en los inputs
   const manejarCambio = (e) => {
@@ -20,14 +22,46 @@ const Contacto = () => {
     });
   };
 
-  // Función para simular el envío
-  const manejarEnvio = (e) => {
+  // Función para envío real mediante FormSubmit AJAX directo a jeremyylasaca40@gmail.com
+  const manejarEnvio = async (e) => {
     e.preventDefault();
-    setEnviado(true);
-    alert(`¡Gracias por tu mensaje, ${formulario.nombre}! Me pondré en contacto contigo pronto.`);
-    // Limpiamos el formulario después de enviar
-    setFormulario({ nombre: '', email: '', mensaje: '' });
-    setTimeout(() => setEnviado(false), 5000);
+    setCargando(true);
+    setError(null);
+    setEnviado(false);
+
+    try {
+      const respuesta = await fetch("https://formsubmit.co/ajax/5f7bd678eca135b9121637d69d7b77d6", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          Nombre: formulario.nombre,
+          Email: formulario.email,
+          Mensaje: formulario.mensaje,
+          _subject: `Nuevo mensaje de ${formulario.nombre} desde MiPortafolio`,
+          _template: "table",
+          _captcha: "false"
+        })
+      });
+
+      const resultado = await respuesta.json();
+
+      if (respuesta.ok && (resultado.success === "true" || resultado.success === true || resultado.status === "success" || resultado.message)) {
+        setEnviado(true);
+        setFormulario({ nombre: '', email: '', mensaje: '' });
+        setTimeout(() => setEnviado(false), 8000);
+      } else {
+        throw new Error(resultado.message || "No se pudo procesar el envío");
+      }
+    } catch (err) {
+      console.error("Error al enviar mensaje:", err);
+      setError("No se pudo enviar en este momento. También puedes escribirme directamente a jeremyylasaca40@gmail.com");
+      setTimeout(() => setError(null), 8000);
+    } finally {
+      setCargando(false);
+    }
   };
 
   return (
@@ -122,6 +156,7 @@ const Contacto = () => {
                   onChange={manejarCambio}
                   placeholder="Tu nombre completo"
                   required
+                  disabled={cargando}
                 />
               </div>
 
@@ -135,6 +170,7 @@ const Contacto = () => {
                   onChange={manejarCambio}
                   placeholder="tu.correo@ejemplo.com"
                   required
+                  disabled={cargando}
                 />
               </div>
 
@@ -148,16 +184,23 @@ const Contacto = () => {
                   placeholder="Cuéntame sobre tu proyecto o propuesta..."
                   rows="5"
                   required
+                  disabled={cargando}
                 ></textarea>
               </div>
 
-              <button type="submit" className="btn-submit">
-                Enviar Mensaje
+              <button type="submit" className="btn-submit" disabled={cargando}>
+                {cargando ? 'Enviando mensaje...' : 'Enviar Mensaje'}
               </button>
 
               {enviado && (
                 <div className="envio-exito">
-                  ✓ Mensaje enviado exitosamente. Responderé a la brevedad.
+                  ✓ ¡Mensaje enviado exitosamente! Te responderé directamente a tu correo a la brevedad.
+                </div>
+              )}
+
+              {error && (
+                <div className="envio-error">
+                  ⚠ {error}
                 </div>
               )}
             </form>

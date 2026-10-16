@@ -59,28 +59,28 @@ const Perfil = () => {
               {/* Ítem de Educación 2 */}
               <div className="timeline-item">
                 <div className="timeline-header">
-                  <h4>Fullstack Developer Software</h4>
-                  <span className="badge badge-outline">Seminario Especializado</span>
+                  <h4>Red Hat System Administration I (RH124)</h4>
+                  <span className="badge badge-outline">RHEL 9.3 • Credly</span>
                 </div>
-                <span className="timeline-date">SENATI - Escuela de Tecnologías</span>
+                <span className="timeline-date">Red Hat Academy</span>
               </div>
 
               {/* Ítem de Educación 3 */}
               <div className="timeline-item">
                 <div className="timeline-header">
-                  <h4>Python Essentials & Data Analytics</h4>
-                  <span className="badge badge-outline">Certificación</span>
+                  <h4>Fundamentos de Python 1</h4>
+                  <span className="badge badge-outline">Certificado Oficial</span>
                 </div>
-                <span className="timeline-date">CISCO Networking Academy</span>
+                <span className="timeline-date">SENATI / Cisco Networking Academy</span>
               </div>
 
               {/* Ítem de Educación 4 */}
               <div className="timeline-item">
                 <div className="timeline-header">
-                  <h4>Gestión y Modelado de Bases de Datos SQL</h4>
-                  <span className="badge badge-outline">Certificación</span>
+                  <h4>Desarrollo con IA & Ciberseguridad</h4>
+                  <span className="badge badge-outline">Especialización</span>
                 </div>
-                <span className="timeline-date">SENATI / Microsoft Learn</span>
+                <span className="timeline-date">mouredev & BIG school</span>
               </div>
             </div>
           </div>
