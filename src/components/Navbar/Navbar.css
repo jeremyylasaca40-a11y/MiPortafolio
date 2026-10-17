@@ -75,6 +75,41 @@
 }
 
 /* =========================================
+   REDES SOCIALES (DESKTOP)
+   ========================================= */
+.navbar-social-desktop {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.nav-social-icon {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-medium);
+  color: var(--text-subtle);
+  transition: var(--transition-normal);
+  text-decoration: none;
+}
+
+.nav-social-icon:hover {
+  color: var(--color-cyan);
+  border-color: var(--color-cyan);
+  background: rgba(0, 216, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px rgba(0, 216, 255, 0.3);
+}
+
+.navbar-social-mobile {
+  display: none;
+}
+
+/* =========================================
    BOTÓN HAMBURGUESA (Oculto en PC)
    ========================================= */
 .navbar-toggle {
@@ -110,6 +145,10 @@
    MEDIA QUERY: VERSIÓN MÓVIL Y TABLET
    ========================================= */
 @media (max-width: 768px) {
+  .navbar-social-desktop {
+    display: none;
+  }
+
   .navbar-toggle {
     display: flex; /* Mostramos el botón hamburguesa */
   }
@@ -132,6 +171,35 @@
   .navbar-links.open {
     display: flex;
     animation: fadeInDown 0.3s ease forwards;
+  }
+
+  .navbar-social-mobile {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-light);
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .nav-social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.5rem 1.2rem;
+    border-radius: var(--radius-pill);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-medium);
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .nav-social-btn:hover {
+    border-color: var(--color-cyan);
+    color: var(--color-cyan);
   }
 }
 

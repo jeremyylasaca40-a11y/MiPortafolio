@@ -10,18 +10,18 @@ const Proyectos = () => {
       descripcion: "Aplicación web completa de pedidos para restaurante con catálogo interactivo de platos típicos y bebidas peruanas, carrito de compras dinámico, módulo 'Mis pedidos' y autenticación de usuarios. Desplegada en servidor de producción con dominio web activo.",
       tecnologias: ["PHP", "MySQL", "JavaScript", "HTML5", "CSS3 / Responsive", "Apache / InfinityFree"],
       linkDemo: "http://comidarapida.infinityfree.me",
-      linkCodigo: "https://github.com/jeremyylasaca40-a11y/MiPortafolio",
+      linkCodigo: "https://github.com/jeremyylasaca26-gif/web_cantabra",
       enProduccion: true
     },
     {
       id: 2,
-      imagen: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
-      titulo: "App Web en Tiempo Real con Socket.io & Chat",
-      descripcion: "Sistema de comunicación bidireccional instantáneo con salas virtuales privadas, notificaciones en tiempo real, eventos en vivo y sincronización de datos con WebSockets.",
-      tecnologias: ["React", "TypeScript", "Socket.io", "Node.js", "Express", "Tailwind CSS"],
-      linkDemo: "https://github.com/jeremyylasaca40-a11y/MiPortafolio",
-      linkCodigo: "https://github.com/jeremyylasaca40-a11y/MiPortafolio",
-      enProduccion: false
+      imagen: "/proyectos/ecomarket.png",
+      titulo: "EcoMarket | E-Commerce de Frutas, Verduras & Abarrotes",
+      descripcion: "Tienda online interactiva y ecológica para compra de productos frescos con catálogo filtrable por categorías (Frutas, Verduras, Abarrotes), carrito de compras reactivo, carrusel de ofertas y diseño adaptativo. Desplegada en producción en Vercel.",
+      tecnologias: ["JavaScript", "HTML5", "CSS3 Moderno", "Responsive Design", "Vercel", "Git"],
+      linkDemo: "https://ecomarket-eight.vercel.app/",
+      linkCodigo: "https://github.com/jeremyylasaca26-gif/EcoMarket",
+      enProduccion: true
     }
   ];
 

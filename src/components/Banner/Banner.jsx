@@ -1,7 +1,46 @@
+import { useState, useEffect } from 'react';
 import './Banner.css';
 import miFoto from '../../assets/miFoto.png';
 
+const ROLES = [
+  "Estudiante de Desarrollo de Software con IA",
+  "Fullstack Web Developer",
+  "Creador de Soluciones Escalables"
+];
+
 const Banner = () => {
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [displayText, setDisplayText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const fullText = ROLES[currentRoleIndex];
+    let timeout;
+
+    if (!isDeleting) {
+      if (displayText.length < fullText.length) {
+        timeout = setTimeout(() => {
+          setDisplayText(fullText.substring(0, displayText.length + 1));
+        }, 70);
+      } else {
+        timeout = setTimeout(() => {
+          setIsDeleting(true);
+        }, 2000);
+      }
+    } else {
+      if (displayText.length > 0) {
+        timeout = setTimeout(() => {
+          setDisplayText(fullText.substring(0, displayText.length - 1));
+        }, 35);
+      } else {
+        setIsDeleting(false);
+        setCurrentRoleIndex((prev) => (prev + 1) % ROLES.length);
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, currentRoleIndex]);
+
   return (
     <section id="inicio" className="hero-section">
       <div className="hero-content">
@@ -26,9 +65,10 @@ const Banner = () => {
           <span className="text-cyan">Ylasaca Lipa</span>
         </h1>
 
-        {/* 4. Subtítulo (Rol) */}
-        <h2 className="hero-subtitle">
-          Estudiante de Desarrollo de Software con IA | SENATI 5to Ciclo | Fullstack Developer
+        {/* 4. Subtítulo con Efecto de Tipeo (Typing Effect) */}
+        <h2 className="hero-subtitle" aria-live="polite">
+          <span className="typing-text">{displayText}</span>
+          <span className="typing-cursor">|</span>
         </h2>
 
         {/* 5. Descripción */}

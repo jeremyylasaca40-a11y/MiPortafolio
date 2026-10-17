@@ -93,11 +93,41 @@
 }
 
 .hero-subtitle {
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   color: var(--color-cyan);
   font-weight: 500;
   margin-bottom: 1.5rem;
   letter-spacing: 0.5px;
+  min-height: 2.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typing-text {
+  display: inline-block;
+  background: linear-gradient(90deg, #00d8ff, #6ee7b7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
+.typing-cursor {
+  display: inline-block;
+  margin-left: 4px;
+  color: var(--color-cyan);
+  font-weight: 300;
+  animation: blinkCursor 0.8s infinite;
+}
+
+@keyframes blinkCursor {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 .hero-description {

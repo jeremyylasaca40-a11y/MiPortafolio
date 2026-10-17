@@ -6,6 +6,8 @@ import Certificados from './components/Certificados/Certificados';
 import Proyectos from './components/Proyectos/Proyectos';
 import Contacto from './components/Contacto/Contacto';
 import Footer from './components/Footer/Footer';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton';
 import './App.css';
 import './index.css';
 
@@ -20,6 +22,8 @@ function App() {
       <Proyectos />
       <Contacto />
       <Footer />
+      <ScrollToTop />
+      <WhatsAppButton />
     </div>
   );
 }

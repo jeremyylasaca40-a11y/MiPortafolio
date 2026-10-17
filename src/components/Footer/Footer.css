@@ -52,6 +52,35 @@
   color: var(--color-cyan);
 }
 
+/* Redes Sociales en Footer */
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.footer-social-btn {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-medium);
+  color: var(--text-subtle);
+  transition: var(--transition-normal);
+  text-decoration: none;
+}
+
+.footer-social-btn:hover {
+  color: var(--color-cyan);
+  border-color: var(--color-cyan);
+  background: rgba(0, 216, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px rgba(0, 216, 255, 0.3);
+}
+
 .footer-bottom {
   display: flex;
   justify-content: space-between;
