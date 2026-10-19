@@ -49,6 +49,62 @@ const Certificados = () => {
   // 2. Lista completa de Certificados Reales de Jeremy Ylasaca
   const certificadosData = [
     {
+      id: 11,
+      titulo: "Java Fundamentals",
+      institucion: "Oracle Academy",
+      instructores: "Giancarlos Barboza Nieto (Instructor Oficial Oracle Academy)",
+      fecha: "Octubre 2026",
+      categoria: "oracle",
+      credencial: "ORACLE-ACADEMY-JF-2026",
+      descripcion: "Acreditación oficial que certifica competencias nucleares en el lenguaje Java: control de flujo, estructuras de datos, programación orientada a objetos (POO), depuración y resolución algorítmica.",
+      tags: ["Java", "POO", "Algoritmos", "Oracle Academy", "Clean Code"],
+      preview: "/certificados/previews/preview_oracle_java_fundamentals_ok.jpg?v=2",
+      pdfUrl: "/certificados/oracle_java_fundamentals_ok.jpg?v=2",
+      icono: "java"
+    },
+    {
+      id: 12,
+      titulo: "Java Foundations",
+      institucion: "Oracle Academy",
+      instructores: "Giancarlos Barboza Nieto (Instructor Oficial Oracle Academy)",
+      fecha: "Octubre 2026",
+      categoria: "oracle",
+      credencial: "ORACLE-ACADEMY-JFD-2026",
+      descripcion: "Certificación internacional sobre arquitectura y fundamentos avanzados de desarrollo en Java: herencia, polimorfismo, interfaces, encapsulamiento, colecciones de objetos y manejo de excepciones.",
+      tags: ["Java Foundations", "POO Avanzada", "Colecciones", "Oracle Academy"],
+      preview: "/certificados/previews/preview_oracle_java_foundations_ok.jpg?v=2",
+      pdfUrl: "/certificados/oracle_java_foundations_ok.jpg?v=2",
+      icono: "java"
+    },
+    {
+      id: 13,
+      titulo: "Database Programming with SQL",
+      institucion: "Oracle Academy",
+      instructores: "Giancarlos Barboza Nieto (Instructor Oficial Oracle Academy)",
+      fecha: "Octubre 2026",
+      categoria: "oracle",
+      credencial: "ORACLE-ACADEMY-DPSQL-2026",
+      descripcion: "Especialización en desarrollo y optimización de sentencias SQL: manipulación y definición de datos (DML/DDL), consultas avanzadas con JOINs, agrupamientos, subconsultas y transacciones ACID.",
+      tags: ["SQL", "Oracle Database", "Consultas Avanzadas", "DML / DDL", "Oracle Academy"],
+      preview: "/certificados/previews/preview_oracle_database_programming_ok.jpg?v=2",
+      pdfUrl: "/certificados/oracle_database_programming_ok.jpg?v=2",
+      icono: "database"
+    },
+    {
+      id: 14,
+      titulo: "Database Design",
+      institucion: "Oracle Academy",
+      instructores: "Giancarlos Barboza Nieto (Instructor Oficial Oracle Academy)",
+      fecha: "Octubre 2026",
+      categoria: "oracle",
+      credencial: "ORACLE-ACADEMY-DD-2026",
+      descripcion: "Diseño y modelado integral de bases de datos relacionales: diagramas entidad-relación (ERD), normalización de tablas (1FN, 2FN, 3FN), reglas de negocio e integridad referencial.",
+      tags: ["Database Design", "Diagramas ERD", "Normalización", "Modelado de Datos", "Oracle Academy"],
+      preview: "/certificados/previews/preview_oracle_database_design_ok.jpg?v=2",
+      pdfUrl: "/certificados/oracle_database_design_ok.jpg?v=2",
+      icono: "database"
+    },
+    {
       id: 1,
       titulo: "Iniciación al Desarrollo con IA",
       institucion: "mouredev & BIG school",
@@ -241,6 +297,24 @@ const Certificados = () => {
             <path d="M5 8v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8M12 13v3"></path>
           </svg>
         );
+      case 'java':
+        return (
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-cyan">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+            <line x1="6" y1="1" x2="6" y2="4"></line>
+            <line x1="10" y1="1" x2="10" y2="4"></line>
+            <line x1="14" y1="1" x2="14" y2="4"></line>
+          </svg>
+        );
+      case 'database':
+        return (
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-cyan">
+            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+          </svg>
+        );
       default:
         return (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-cyan">
@@ -259,7 +333,7 @@ const Certificados = () => {
         <div className="certificados-header-block">
           <h2 className="section-title text-center">Certificaciones & Logros</h2>
           <p className="certificados-subtitle text-center">
-            Credenciales oficiales y acreditaciones técnicas emitidas por <strong>SENATI</strong>, <strong>Cisco Networking Academy</strong>, <strong>Red Hat</strong>, <strong>mouredev</strong> y <strong>BIG school</strong>.
+            Credenciales oficiales y acreditaciones técnicas emitidas por <strong>Oracle Academy</strong>, <strong>SENATI</strong>, <strong>Cisco Networking Academy</strong>, <strong>Red Hat</strong>, <strong>mouredev</strong> y <strong>BIG school</strong>.
           </p>
         </div>
 
@@ -361,22 +435,28 @@ const Certificados = () => {
             Todos ({certificadosData.length})
           </button>
           <button 
+            className={`filter-btn ${categoriaActiva === 'oracle' ? 'active' : ''}`}
+            onClick={() => setCategoriaActiva('oracle')}
+          >
+            Java & Bases de Datos ({certificadosData.filter(c => c.categoria === 'oracle').length})
+          </button>
+          <button 
             className={`filter-btn ${categoriaActiva === 'ia' ? 'active' : ''}`}
             onClick={() => setCategoriaActiva('ia')}
           >
-            IA & Python (4)
+            IA & Python ({certificadosData.filter(c => c.categoria === 'ia').length})
           </button>
           <button 
             className={`filter-btn ${categoriaActiva === 'seguridad' ? 'active' : ''}`}
             onClick={() => setCategoriaActiva('seguridad')}
           >
-            Ciberseguridad (2)
+            Ciberseguridad ({certificadosData.filter(c => c.categoria === 'seguridad').length})
           </button>
           <button 
             className={`filter-btn ${categoriaActiva === 'sistemas' ? 'active' : ''}`}
             onClick={() => setCategoriaActiva('sistemas')}
           >
-            Sistemas, Redes & Hardware (4)
+            Sistemas & Redes ({certificadosData.filter(c => c.categoria === 'sistemas').length})
           </button>
         </div>
 
@@ -461,7 +541,7 @@ const Certificados = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-pdf-link"
-                    title="Abrir documento PDF original en pestaña nueva"
+                    title={cert.pdfUrl?.endsWith('.pdf') ? "Abrir documento PDF original en pestaña nueva" : "Abrir certificado oficial en alta resolución"}
                   >
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -469,7 +549,7 @@ const Certificados = () => {
                       <line x1="12" y1="18" x2="12" y2="12"></line>
                       <line x1="9" y1="15" x2="15" y2="15"></line>
                     </svg>
-                    PDF
+                    {cert.pdfUrl?.endsWith('.pdf') ? 'PDF' : 'Ver Doc'}
                   </a>
 
                   {cert.credlyUrl && (
@@ -561,7 +641,7 @@ const Certificados = () => {
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                     <polyline points="14 2 14 8 20 8"></polyline>
                   </svg>
-                  Abrir Documento PDF Oficial ↗
+                  {certificadoActivo.pdfUrl?.endsWith('.pdf') ? 'Abrir Documento PDF Oficial ↗' : 'Abrir Certificado Oficial ↗'}
                 </a>
 
                 {certificadoActivo.credlyUrl && (
