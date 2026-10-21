@@ -60,6 +60,18 @@ const Proyectos = () => {
       textoDemo: "Descargar APK",
       badgeTexto: "App Android (APK)",
       enProduccion: true
+    },
+    {
+      id: 6,
+      imagen: "/proyectos/monitoreo_temperatura_tinkercad.png",
+      titulo: "Sistema de Monitoreo Térmico & Control de Temperatura | Arduino & IoT",
+      descripcion: "Circuito y simulación interactiva en Tinkercad para la medición y alerta térmica automatizada en tiempo real. Integra microcontrolador Arduino UNO, sensor de temperatura analógico TMP36, pantalla LCD 16x2 para despliegue de lecturas térmicas (°C) y diagnósticos, semáforo LED de 3 estados (Normal, Precaución, Crítico), zumbador de alarma y servomotor actuador para compuertas de ventilación.",
+      tecnologias: ["Arduino UNO", "C++", "Tinkercad", "Sensor TMP36", "Pantalla LCD 16x2", "Servomotor", "Buzzer", "IoT"],
+      linkDemo: "https://www.tinkercad.com/things/fKLxgmL0g8E-proyecto-entregable-20/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard%2Fdesigns%2Fcircuits&sharecode=887C8vakBjt2y0ptf23Zk8xlwGMRzbpFRGmJhyth2so",
+      linkCodigo: null,
+      textoDemo: "Simulación Tinkercad ↗",
+      badgeTexto: "Simulación Interactiva",
+      enProduccion: true
     }
   ];
 
