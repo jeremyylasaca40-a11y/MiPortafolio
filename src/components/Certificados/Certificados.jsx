@@ -58,8 +58,8 @@ const Certificados = () => {
       credencial: "ORACLE-ACADEMY-JF-2026",
       descripcion: "Acreditación oficial que certifica competencias nucleares en el lenguaje Java: control de flujo, estructuras de datos, programación orientada a objetos (POO), depuración y resolución algorítmica.",
       tags: ["Java", "POO", "Algoritmos", "Oracle Academy", "Clean Code"],
-      preview: "/certificados/previews/preview_oracle_java_fundamentals_ok.jpg?v=2",
-      pdfUrl: "/certificados/oracle_java_fundamentals_ok.jpg?v=2",
+      preview: "/certificados/previews/preview_oracle_java_fundamentals_ok.jpg?v=3",
+      pdfUrl: "/certificados/oracle_java_fundamentals_ok.jpg?v=3",
       icono: "java"
     },
     {
@@ -72,8 +72,8 @@ const Certificados = () => {
       credencial: "ORACLE-ACADEMY-JFD-2026",
       descripcion: "Certificación internacional sobre arquitectura y fundamentos avanzados de desarrollo en Java: herencia, polimorfismo, interfaces, encapsulamiento, colecciones de objetos y manejo de excepciones.",
       tags: ["Java Foundations", "POO Avanzada", "Colecciones", "Oracle Academy"],
-      preview: "/certificados/previews/preview_oracle_java_foundations_ok.jpg?v=2",
-      pdfUrl: "/certificados/oracle_java_foundations_ok.jpg?v=2",
+      preview: "/certificados/previews/preview_oracle_java_foundations_ok.jpg?v=3",
+      pdfUrl: "/certificados/oracle_java_foundations_ok.jpg?v=3",
       icono: "java"
     },
     {
@@ -86,8 +86,8 @@ const Certificados = () => {
       credencial: "ORACLE-ACADEMY-DPSQL-2026",
       descripcion: "Especialización en desarrollo y optimización de sentencias SQL: manipulación y definición de datos (DML/DDL), consultas avanzadas con JOINs, agrupamientos, subconsultas y transacciones ACID.",
       tags: ["SQL", "Oracle Database", "Consultas Avanzadas", "DML / DDL", "Oracle Academy"],
-      preview: "/certificados/previews/preview_oracle_database_programming_ok.jpg?v=2",
-      pdfUrl: "/certificados/oracle_database_programming_ok.jpg?v=2",
+      preview: "/certificados/previews/preview_oracle_database_programming_ok.jpg?v=3",
+      pdfUrl: "/certificados/oracle_database_programming_ok.jpg?v=3",
       icono: "database"
     },
     {
@@ -100,8 +100,8 @@ const Certificados = () => {
       credencial: "ORACLE-ACADEMY-DD-2026",
       descripcion: "Diseño y modelado integral de bases de datos relacionales: diagramas entidad-relación (ERD), normalización de tablas (1FN, 2FN, 3FN), reglas de negocio e integridad referencial.",
       tags: ["Database Design", "Diagramas ERD", "Normalización", "Modelado de Datos", "Oracle Academy"],
-      preview: "/certificados/previews/preview_oracle_database_design_ok.jpg?v=2",
-      pdfUrl: "/certificados/oracle_database_design_ok.jpg?v=2",
+      preview: "/certificados/previews/preview_oracle_database_design_ok.jpg?v=3",
+      pdfUrl: "/certificados/oracle_database_design_ok.jpg?v=3",
       icono: "database"
     },
     {

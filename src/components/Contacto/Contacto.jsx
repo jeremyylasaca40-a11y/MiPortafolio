@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
+import Swal from 'sweetalert2';
 import './Contacto.css';
 
 const Contacto = () => {
@@ -22,7 +24,7 @@ const Contacto = () => {
     });
   };
 
-  // Función para envío real mediante FormSubmit AJAX directo a jeremyylasaca40@gmail.com
+  // Función para envío de correo mediante EmailJS
   const manejarEnvio = async (e) => {
     e.preventDefault();
     setCargando(true);
@@ -30,34 +32,77 @@ const Contacto = () => {
     setEnviado(false);
 
     try {
-      const respuesta = await fetch("https://formsubmit.co/ajax/5f7bd678eca135b9121637d69d7b77d6", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          Nombre: formulario.nombre,
-          Email: formulario.email,
-          Mensaje: formulario.mensaje,
-          _subject: `Nuevo mensaje de ${formulario.nombre} desde MiPortafolio`,
-          _template: "table",
-          _captcha: "false"
-        })
-      });
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_t2hqa7k';
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_rtstzu8';
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '0SORe1ChaLDS5sQac';
 
-      const resultado = await respuesta.json();
+      // Parámetros compatibles tanto en español como en inglés para la plantilla de EmailJS
+      const templateParams = {
+        nombre: formulario.nombre,
+        from_name: formulario.nombre,
+        user_name: formulario.nombre,
+        name: formulario.nombre,
 
-      if (respuesta.ok && (resultado.success === "true" || resultado.success === true || resultado.status === "success" || resultado.message)) {
+        correo: formulario.email,
+        email: formulario.email,
+        from_email: formulario.email,
+        user_email: formulario.email,
+        reply_to: formulario.email,
+
+        mensaje: formulario.mensaje,
+        message: formulario.mensaje,
+
+        titulo: formulario.nombre,
+        subject: `Nuevo mensaje de ${formulario.nombre} desde MiPortafolio`
+      };
+
+      const response = await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+      if (response.status === 200 || response.text === 'OK') {
         setEnviado(true);
         setFormulario({ nombre: '', email: '', mensaje: '' });
+
+        // Modal emergente idéntico al solicitado con SweetAlert2
+        Swal.fire({
+          icon: 'success',
+          title: '¡Mensaje Enviado!',
+          text: 'Gracias por contactarme. Te responderé a la brevedad.',
+          background: '#0d1527',
+          color: '#ffffff',
+          confirmButtonColor: '#00d8ff',
+          confirmButtonText: 'OK',
+          customClass: {
+            popup: 'swal-custom-popup',
+            title: 'swal-custom-title',
+            htmlContainer: 'swal-custom-text',
+            confirmButton: 'swal-custom-btn'
+          }
+        });
+
         setTimeout(() => setEnviado(false), 8000);
       } else {
-        throw new Error(resultado.message || "No se pudo procesar el envío");
+        throw new Error('Respuesta inesperada al enviar correo');
       }
     } catch (err) {
-      console.error("Error al enviar mensaje:", err);
-      setError("No se pudo enviar en este momento. También puedes escribirme directamente a jeremyylasaca40@gmail.com");
+      console.error("Error al enviar mensaje con EmailJS:", err);
+      setError("No se pudo enviar en este momento. También puedes escribirme directamente a jeremyylasaca40@gmail.com o por WhatsApp.");
+
+      Swal.fire({
+        icon: 'error',
+        title: 'Error al enviar',
+        text: 'No se pudo enviar el mensaje en este momento. También puedes escribirme directamente a jeremyylasaca40@gmail.com o por WhatsApp.',
+        background: '#0d1527',
+        color: '#ffffff',
+        confirmButtonColor: '#00d8ff',
+        confirmButtonText: 'OK',
+        customClass: {
+          popup: 'swal-custom-popup',
+          title: 'swal-custom-title',
+          htmlContainer: 'swal-custom-text',
+          confirmButton: 'swal-custom-btn'
+        }
+      });
+
       setTimeout(() => setError(null), 8000);
     } finally {
       setCargando(false);
